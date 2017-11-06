@@ -75,3 +75,6 @@ target/
 
 #wav files
 *.wav
+
+#out files
+*.out
