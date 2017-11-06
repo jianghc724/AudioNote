@@ -1,6 +1,7 @@
 import scipy.io.wavfile as wav
 import numpy as np
-import speechpy, os
+import speechpy
+import os
 
 
 class Extract:
@@ -9,6 +10,7 @@ class Extract:
 
     def extract(self, file_name):
         fs, signal = wav.read(file_name)
+#        print(file_name)
         signal = signal[:, 0]
         mfcc = speechpy.mfcc(signal, sampling_frequency=fs, frame_length=0.020, frame_stride=0.01,
                              num_filters=40, fft_length=512, low_frequency=0, high_frequency=None)
