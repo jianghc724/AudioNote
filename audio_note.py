@@ -8,9 +8,15 @@ class AudioNote:
         c = Converter()
         wavfiles, speaker = d.divide(filename, path)
         index = 0
+        f = open("out.txt", "w")
         for fn in wavfiles:
             text = c.convert(path + fn)
-            print('Speaker ', speaker[index], ': ', text)
+            f.write('Speaker ')
+            f.write(str(speaker[index]))
+            f.write(': ')
+            for t in text:
+                f.write(t)
+            f.write('\n')
             index = index + 1
 
 if __name__ == '__main__':
