@@ -1,7 +1,4 @@
 import speech_recognition as sr
-import scipy.io.wavfile as wav
-import numpy as np
-import os
 
 
 class Converter:

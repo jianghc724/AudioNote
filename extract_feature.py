@@ -1,13 +1,8 @@
 import scipy.io.wavfile as wav
-import numpy as np
 import speechpy
-import os
 
 
 class Extract:
-    def inputFromFile(self, path):
-        pass
-
     def extract(self, file_name):
         fs, signal = wav.read(file_name)
 #        print(file_name)

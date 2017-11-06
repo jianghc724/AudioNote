@@ -1,15 +1,12 @@
 from divide_by_people import Divider
 from speech_to_text import Converter
-from os import listdir
-from os.path import isfile, join
 
 
 class AudioNote:
-    def getResult(self, path):
+    def getResult(self, filename, path):
         d = Divider()
         c = Converter()
-        speaker = d.divide()
-        wavfiles = [f for f in listdir(path) if isfile(join(path, f)) and f.endswith('wav')]
+        wavfiles, speaker = d.divide(filename, path)
         index = 0
         for fn in wavfiles:
             text = c.convert(path + fn)
@@ -18,4 +15,4 @@ class AudioNote:
 
 if __name__ == '__main__':
     data = AudioNote()
-    data.getResult('./media/')
+    data.getResult('meeting.wav', './media/')
